@@ -77,7 +77,7 @@ nav ul li a:hover { color: #555; }
 .produtos h3 { text-align: center; margin-bottom: 30px; }
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
@@ -141,12 +141,6 @@ footer {
 }
 
 /* RESPONSIVO */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   nav ul {
     position: absolute;
@@ -160,12 +154,6 @@ footer {
   }
   nav ul.active { display: flex; }
   .menu-btn { display: block; }
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* SITE BLOQUEADO */
@@ -182,12 +170,14 @@ footer {
   align-items:center;
   justify-content:center;
   text-align:center;
+  font-family: Arial, sans-serif;
 }
 
 #blocked button {
   padding: 15px 30px;
   font-size: 18px;
   cursor: pointer;
+  margin-top: 20px;
 }
 </style>
 </head>
@@ -195,9 +185,9 @@ footer {
 
 <div id="blocked">
   <h1>Site indisponível</h1>
-  <p>Em breve a LOYL estará disponível para todos.</p>
+  <p>Somente o administrador pode liberar o site.</p>
   <p id="countdown"></p>
-  <button id="unlockBtn">Acesso do administrador</button>
+  <button id="unlockBtn">Liberar Site</button>
 </div>
 
 <header>
@@ -224,14 +214,40 @@ footer {
   </div>
 </section>
 
+<!-- MASCULINO -->
 <section class="produtos" id="masculino">
   <h3>Masculino</h3>
   <div class="grid">
     <div class="card">
       <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
-      <h4>Camiseta Masculina LOYL</h4>
+      <h4>Camiseta Masculino Branco e Preto LOYL Frente e Verso</h4>
       <p>R$ 89,90</p>
-      <button onclick="window.open('https://wa.me/5511993266606?text=Olá,%20gostaria%20de%20adquirir%20uma%20camiseta%20da%20LOYL.%20Poderia%20me%20passar%20mais%20informações%3F')">Comprar</button>
+      <button onclick="buyProduct('Camiseta Masculino Branco e Preto LOYL Frente e Verso')">Comprar</button>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
+      <h4>Camiseta Masculino Outra</h4>
+      <p>R$ 79,90</p>
+      <button onclick="buyProduct('Camiseta Masculino Outra')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<!-- FEMININO -->
+<section class="produtos" id="feminino">
+  <h3>Feminino</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
+      <h4>Camiseta Feminina Preta LOYL</h4>
+      <p>R$ 199,90</p>
+      <button onclick="buyProduct('Camiseta Feminina Preta LOYL')">Comprar</button>
+    </div>
+    <div class="card">
+      <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
+      <h4>Camiseta Feminina Branca LOYL</h4>
+      <p>R$ 149,90</p>
+      <button onclick="buyProduct('Camiseta Feminina Branca LOYL')">Comprar</button>
     </div>
   </div>
 </section>
@@ -239,7 +255,6 @@ footer {
 <section id="contato">
   <h3>Contato</h3>
   <p>📱 WhatsApp: (11) 99326-6606</p>
-  <p>✉️ E-mail: stayloyll@gmail.com</p>
   <p>📍 São Paulo - SP</p>
 </section>
 
@@ -247,13 +262,15 @@ footer {
   © 2026 LOYL — Todos os direitos reservados
 </footer>
 
-<a href="https://wa.me/5511993266606?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20da%20LOYL." class="whatsapp-btn" target="_blank">💬</a>
+<a href="https://wa.me/5511993266606?text=Olá,%20vim%20pela%20loja%20LOYL%20e%20quero%20comprar%20uma%20camiseta" class="whatsapp-btn" target="_blank">💬</a>
 
 <script>
+// MENU RESPONSIVO
 function toggleMenu() {
   document.getElementById("menu").classList.toggle("active");
 }
 
+// BLOQUEIO ATÉ 25 MARÇO
 const blockedDiv = document.getElementById('blocked');
 const unlockBtn = document.getElementById('unlockBtn');
 const releaseDate = new Date('2026-03-25T00:00:00').getTime();
@@ -269,18 +286,25 @@ function updateCountdown() {
     const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
     const mins = Math.floor((diff%(1000*60*60))/(1000*60));
     const secs = Math.floor((diff%(1000*60))/1000);
-    document.getElementById('countdown').innerText =
-      `Liberação em ${days}d ${hours}h ${mins}m ${secs}s`;
+    document.getElementById('countdown').innerText = `Liberado em ${days}d ${hours}h ${mins}m ${secs}s`;
   }
 }
 
 const countdownInterval = setInterval(updateCountdown,1000);
 updateCountdown();
 
+// BOTÃO PARA LIBERAR SÓ VOCÊ
 unlockBtn.addEventListener('click', () => {
   blockedDiv.style.display = 'none';
 });
+
+// FUNÇÃO DE COMPRA PROFISSIONAL
+function buyProduct(productName) {
+  const msg = `Olá, vim pelo site LOYL e gostaria de comprar a camiseta "${productName}". Poderia me passar os detalhes de pagamento, por favor?`;
+  const url = `https://wa.me/5511993266606?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
 </script>
 
 </body>
-  </html>
+</html>
