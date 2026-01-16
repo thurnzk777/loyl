@@ -1,185 +1,67 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOYL Store</title>
+<title>LOYL</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#fff;color:#000;}
 
-body{
-  background:#fff;
-  color:#000;
-}
-
-/* ===== TELA DE ACESSO ===== */
+/* SENHA DE ACESSO */
 #gate{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+  position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;
+  background-image:url('https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg');
+  background-size:contain;background-repeat:no-repeat;background-position:center;
 }
-
-.gate-box{
-  text-align:center;
-  border:1px solid #ccc;
-  padding:40px;
-  max-width:350px;
-  width:90%;
-}
-
-.gate-box h2{
-  margin-bottom:10px;
-}
-
-.gate-box p{
-  margin-bottom:20px;
-  font-size:14px;
-  color:#555;
-}
-
-.gate-box input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-}
-
-.gate-box button{
-  width:100%;
-  padding:10px;
-  background:#000;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
-
-.gate-error{
-  color:red;
-  margin-top:10px;
-  font-size:14px;
-}
+.gate-box{text-align:center;border:1px solid #ccc;padding:40px;max-width:350px;width:90%;background:#fff;}
+.gate-box h2{margin-bottom:10px;}
+.gate-box p{margin-bottom:20px;font-size:14px;color:#555;}
+.gate-box input{width:100%;padding:10px;margin-bottom:10px;}
+.gate-box button{width:100%;padding:10px;background:#000;color:#fff;border:none;cursor:pointer;}
+.gate-error{color:red;margin-top:10px;font-size:14px;}
 
 /* HEADER */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 30px;
-  border-bottom:1px solid #ccc;
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#fff;
-  z-index:1000;
-}
-
+header{display:flex;align-items:center;justify-content:space-between;padding:15px 30px;border-bottom:1px solid #ccc;position:fixed;top:0;width:100%;background:#fff;z-index:1000;}
 .logo img{height:55px;}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-
-nav a{
-  text-decoration:none;
-  color:#000;
-  font-weight:bold;
-}
+nav ul{list-style:none;display:flex;gap:25px;}
+nav a{text-decoration:none;color:#000;font-weight:bold;}
 
 /* HERO */
-.hero{
-  margin-top:100px;
-  height:50vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
+.hero{margin-top:100px;height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;}
 
 /* PRODUTOS */
 .produtos{padding:40px 20px;}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.card{
-  border:1px solid #ccc;
-  padding:15px;
-  text-align:center;
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.card{border:1px solid #ccc;padding:15px;text-align:center;}
+.card img{width:100%;height:220px;object-fit:cover;}
+.card select, .card input{margin:5px 0;width:100%;padding:5px;}
+.card button{background:#000;color:#fff;border:none;padding:10px;margin-top:10px;cursor:pointer;}
 
 /* FRETE */
 .frete{margin-top:15px;}
+.frete input{width:100%;padding:8px;margin-bottom:8px;}
+.frete button{width:100%;padding:8px;background:#000;color:#fff;border:none;cursor:pointer;}
+.frete p{margin-top:8px;font-size:14px;}
 
-.frete input{
-  width:100%;
-  padding:8px;
-  margin-bottom:8px;
-}
-
-.frete button{
-  width:100%;
-  padding:8px;
-  background:#000;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
-
-.frete p{
-  margin-top:8px;
-  font-size:14px;
-}
+/* CARRINHO */
+#carrinho{padding:20px;margin:20px;border:1px solid #ccc;}
+#carrinho h3{text-align:center;margin-bottom:10px;}
+#carrinho ul{list-style:none;}
+#carrinho li{margin-bottom:8px;}
 
 /* RESPONSIVO */
-@media(max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:500px){
-  .grid{grid-template-columns:1fr;}
-}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.grid{grid-template-columns:1fr;}}
 
 /* WHATS */
-.whatsapp-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:55px;
-  height:55px;
-  background:#25d366;
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  text-decoration:none;
-}
+.whatsapp-btn{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;}
 </style>
 </head>
-
 <body>
 
-<!-- TELA FECHADA -->
+<!-- SENHA -->
 <div id="gate">
   <div class="gate-box">
     <h2>Acesso Exclusivo</h2>
@@ -191,13 +73,12 @@ nav a{
 </div>
 
 <header>
-  <div class="logo">
-    <img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg">
-  </div>
+  <div class="logo"><img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg"></div>
   <nav>
     <ul>
       <li><a href="#masculino">Masculino</a></li>
       <li><a href="#feminino">Feminino</a></li>
+      <li><a href="#carrinho">Carrinho</a></li>
     </ul>
   </nav>
 </header>
@@ -209,67 +90,120 @@ nav a{
   </div>
 </section>
 
+<!-- PRODUTOS MASCULINO -->
 <section class="produtos" id="masculino">
 <h2>Masculino</h2>
 <div class="grid">
-
-<div class="card">
-  <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
-  <h3>Camiseta LOYL Preta</h3>
-  <p>R$ 89,90</p>
-  <div class="frete">
-    <input type="text" placeholder="Digite seu CEP" id="cep1">
-    <button onclick="calcularFrete('cep1','frete1')">Calcular frete</button>
-    <p id="frete1"></p>
+  <div class="card">
+    <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
+    <h3>Camiseta Boxy Preta</h3>
+    <p>R$ 69,99</p>
+    <select id="tamanho1">
+      <option value="M">M</option>
+      <option value="P">P</option>
+      <option value="G">G</option>
+    </select>
+    <input type="number" id="qtd1" value="1" min="1" max="3">
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP" id="cep1">
+      <button onclick="calcularFrete('cep1','frete1')">Calcular frete</button>
+      <p id="frete1"></p>
+    </div>
+    <button onclick="adicionarCarrinho('Camiseta Boxy Preta',69.99,'tamanho1','qtd1','frete1')">Adicionar ao Carrinho</button>
   </div>
-</div>
 
-<div class="card">
-  <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
-  <h3>Camiseta LOYL Branca</h3>
-  <p>R$ 89,90</p>
-  <div class="frete">
-    <input type="text" placeholder="Digite seu CEP" id="cep2">
-    <button onclick="calcularFrete('cep2','frete2')">Calcular frete</button>
-    <p id="frete2"></p>
+  <div class="card">
+    <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
+    <h3>Camiseta Boxy Branca</h3>
+    <p>R$ 69,99</p>
+    <select id="tamanho2">
+      <option value="M">M</option>
+      <option value="P">P</option>
+      <option value="G">G</option>
+    </select>
+    <input type="number" id="qtd2" value="1" min="1" max="3">
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP" id="cep2">
+      <button onclick="calcularFrete('cep2','frete2')">Calcular frete</button>
+      <p id="frete2"></p>
+    </div>
+    <button onclick="adicionarCarrinho('Camiseta Boxy Branca',69.99,'tamanho2','qtd2','frete2')">Adicionar ao Carrinho</button>
   </div>
-</div>
 
+  <div class="card">
+    <img src="https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg" alt="Calça Baggy Preta">
+    <h3>Calça Baggy Preta Unissex</h3>
+    <p>R$ 129,99</p>
+    <select id="tamanho3">
+      <option value="M">M</option>
+      <option value="P">P</option>
+      <option value="G">G</option>
+    </select>
+    <input type="number" id="qtd3" value="1" min="1" max="3">
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP" id="cep3">
+      <button onclick="calcularFrete('cep3','frete3')">Calcular frete</button>
+      <p id="frete3"></p>
+    </div>
+    <button onclick="adicionarCarrinho('Calça Baggy Preta Unissex',129.99,'tamanho3','qtd3','frete3')">Adicionar ao Carrinho</button>
+  </div>
 </div>
 </section>
 
+<!-- PRODUTOS FEMININO -->
 <section class="produtos" id="feminino">
 <h2>Feminino</h2>
 <div class="grid">
-
-<div class="card">
-  <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
-  <h3>Camiseta Feminina Preta</h3>
-  <p>R$ 199,90</p>
-  <div class="frete">
-    <input type="text" placeholder="Digite seu CEP" id="cep3">
-    <button onclick="calcularFrete('cep3','frete3')">Calcular frete</button>
-    <p id="frete3"></p>
+  <div class="card">
+    <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
+    <h3>Baby Tee Feminina Preta</h3>
+    <p>R$ 59,99</p>
+    <select id="tamanho4">
+      <option value="M">M</option>
+      <option value="P">P</option>
+      <option value="G">G</option>
+    </select>
+    <input type="number" id="qtd4" value="1" min="1" max="3">
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP" id="cep4">
+      <button onclick="calcularFrete('cep4','frete4')">Calcular frete</button>
+      <p id="frete4"></p>
+    </div>
+    <button onclick="adicionarCarrinho('Baby Tee Feminina Preta',59.99,'tamanho4','qtd4','frete4')">Adicionar ao Carrinho</button>
   </div>
-</div>
 
-<div class="card">
-  <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
-  <h3>Camiseta Feminina Branca</h3>
-  <p>R$ 149,90</p>
-  <div class="frete">
-    <input type="text" placeholder="Digite seu CEP" id="cep4">
-    <button onclick="calcularFrete('cep4','frete4')">Calcular frete</button>
-    <p id="frete4"></p>
+  <div class="card">
+    <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
+    <h3>Baby Tee Feminina Branca</h3>
+    <p>R$ 59,99</p>
+    <select id="tamanho5">
+      <option value="M">M</option>
+      <option value="P">P</option>
+      <option value="G">G</option>
+    </select>
+    <input type="number" id="qtd5" value="1" min="1" max="3">
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP" id="cep5">
+      <button onclick="calcularFrete('cep5','frete5')">Calcular frete</button>
+      <p id="frete5"></p>
+    </div>
+    <button onclick="adicionarCarrinho('Baby Tee Feminina Branca',59.99,'tamanho5','qtd5','frete5')">Adicionar ao Carrinho</button>
   </div>
-</div>
-
 </div>
 </section>
 
-<a class="whatsapp-btn" href="https://wa.me/5511993266606" target="_blank">💬</a>
+<!-- CARRINHO -->
+<section id="carrinho">
+<h3>Carrinho</h3>
+<ul id="lista-carrinho"></ul>
+<p>Total: R$ <span id="total">0.00</span></p>
+<p>Localização: São Paulo - SP</p>
+<p><a href="#">Termos e Condições</a></p>
+<a class="whatsapp-btn" id="finalizar" target="_blank">💬</a>
+</section>
 
 <script>
+// SENHA
 function verificarSenha(){
   const senha = document.getElementById("senha").value;
   if(senha === "Efatah20"){
@@ -279,16 +213,42 @@ function verificarSenha(){
   }
 }
 
+// FRETE
 function calcularFrete(inputId, outputId){
   const cep = document.getElementById(inputId).value;
   if(cep.length < 8){
     document.getElementById(outputId).innerText = "CEP inválido";
     return;
   }
-  document.getElementById(outputId).innerHTML =
-    "PAC: R$ 19,90 (15 dias úteis)<br>SEDEX: R$ 34,90 (2 a 3 dias úteis)";
+  document.getElementById(outputId).innerText = "PAC: R$ 19,90 (15 dias úteis)";
+}
+
+// CARRINHO
+let carrinho = [];
+function adicionarCarrinho(nome, preco, tamanhoId, qtdId, freteId){
+  const tamanho = document.getElementById(tamanhoId).value;
+  const qtd = parseInt(document.getElementById(qtdId).value);
+  if(qtd>3){alert("Quantidade máxima: 3"); return;}
+  const frete = document.getElementById(freteId).innerText || "PAC: R$ 19,90";
+  const produto = {nome, preco, tamanho, qtd, frete};
+  carrinho.push(produto);
+  atualizarCarrinho();
+}
+
+function atualizarCarrinho(){
+  const lista = document.getElementById("lista-carrinho");
+  lista.innerHTML="";
+  let total=0;
+  let msg="";
+  carrinho.forEach(p=>{
+    lista.innerHTML+=`<li>${p.nome} - Tamanho: ${p.tamanho} - Qtd: ${p.qtd} - ${p.frete} - R$ ${(p.preco*p.qtd+19.9).toFixed(2)}</li>`;
+    total+=p.preco*p.qtd+19.9; // frete fixo
+    msg+=`${p.nome} - Tamanho: ${p.tamanho} - Qtd: ${p.qtd} - ${p.frete}\n`;
+  });
+  document.getElementById("total").innerText = total.toFixed(2);
+  document.getElementById("finalizar").href = `https://wa.me/5511978695484?text=Olá,%20quero%20comprar%20os%20seguintes%20produtos:%0A${encodeURIComponent(msg)}Total: R$ ${total.toFixed(2)}`;
 }
 </script>
 
 </body>
-    </html>
+        </html>
