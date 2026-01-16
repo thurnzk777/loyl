@@ -4,70 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOYL</title>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
-body { background:#fff; color:#000; }
 
-/* TELA DE ACESSO */
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#fff;color:#000}
+
+/* GATE */
 #gate{
-  position:fixed; inset:0; background:#fff url('https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center; z-index:9999;
+  position:fixed;inset:0;
+  background:#fff url('https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;z-index:9999
 }
-.gate-box{ text-align:center; background:rgba(255,255,255,0.9); padding:40px; max-width:350px; width:90%; border-radius:8px; }
-.gate-box h2{ margin-bottom:10px; }
-.gate-box p{ margin-bottom:20px; font-size:14px; color:#555; }
-.gate-box input{ width:100%; padding:10px; margin-bottom:10px; }
-.gate-box button{ width:100%; padding:10px; background:#000; color:#fff; border:none; cursor:pointer; }
-.gate-error{ color:red; margin-top:10px; font-size:14px; }
+.gate-box{background:rgba(255,255,255,.9);padding:40px;width:90%;max-width:350px;border-radius:8px;text-align:center}
+.gate-box input{width:100%;padding:10px;margin-bottom:10px}
+.gate-box button{width:100%;padding:10px;background:#000;color:#fff;border:none;cursor:pointer}
+.gate-error{color:red;font-size:14px}
 
 /* HEADER */
-header{ display:flex; align-items:center; justify-content:space-between; padding:15px 30px; border-bottom:1px solid #ccc; position:fixed; top:0; width:100%; background:#fff; z-index:1000; }
-.logo img{ height:55px; }
-nav ul{ list-style:none; display:flex; gap:25px; }
-nav a{ text-decoration:none; color:#000; font-weight:bold; }
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;border-bottom:1px solid #ccc;position:fixed;width:100%;top:0;background:#fff;z-index:1000}
+.logo img{height:55px}
+nav ul{list-style:none;display:flex;gap:25px}
+nav a{text-decoration:none;color:#000;font-weight:bold}
 
 /* HERO */
-.hero{ margin-top:100px; height:50vh; display:flex; align-items:center; justify-content:center; text-align:center; }
+.hero{margin-top:100px;height:50vh;display:flex;justify-content:center;align-items:center;text-align:center}
 
 /* PRODUTOS */
-.produtos{ padding:40px 20px; }
-.grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.card{ border:1px solid #ccc; padding:15px; text-align:center; }
-.card img{ width:100%; height:220px; object-fit:cover; }
-.card button{ background:#000; color:#fff; border:none; padding:10px; margin-top:10px; cursor:pointer; width:100%; }
-
-/* FRETE */
-.frete{ margin-top:10px; }
-.frete input{ width:100%; padding:8px; margin-bottom:8px; }
-.frete button{ width:100%; padding:8px; background:#000; color:#fff; border:none; cursor:pointer; }
-.frete p{ margin-top:8px; font-size:14px; }
+.produtos{padding:40px 20px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{border:1px solid #ccc;padding:15px;text-align:center}
+.card img{width:100%;height:220px;object-fit:cover}
+.card button{background:#000;color:#fff;border:none;padding:10px;width:100%;cursor:pointer}
 
 /* CARRINHO */
-#carrinho{ margin-top:20px; padding:20px; border:1px solid #ccc; }
-#carrinho h2{ margin-bottom:10px; }
-#itens{ white-space: pre-wrap; margin-bottom:10px; }
-#notificacao{ position:fixed; bottom:100px; right:20px; background:#fff; border:1px solid #ccc; display:none; padding:10px; align-items:center; gap:10px; z-index:1000; border-radius:6px; }
-#notificacao img{ width:50px; height:50px; object-fit:cover; }
+#carrinho{margin:20px;padding:20px;border:1px solid #ccc}
+#itens{white-space:pre-wrap;margin:10px 0}
 
-/* RESPONSIVO */
-@media(max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); } }
-@media(max-width:500px){ .grid{ grid-template-columns:1fr; } }
+/* FINALIZAR */
+.finalizar-btn{
+  background:#25d366;color:#fff;font-weight:bold;
+  width:100%;padding:12px;border:none;cursor:pointer;border-radius:4px
+}
+.finalizar-btn:hover{background:#1ebe5d}
+
+/* NOTIFICAÇÃO */
+#notificacao{position:fixed;bottom:100px;right:20px;background:#fff;border:1px solid #ccc;padding:10px;display:none;gap:10px;border-radius:6px}
+#notificacao img{width:50px;height:50px;object-fit:cover}
 
 /* WHATS */
-.whatsapp-btn{ position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:#25d366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; text-decoration:none; }
+.whatsapp-btn{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none}
+
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 
 <body>
 
-<!-- TELA FECHADA -->
 <div id="gate">
   <div class="gate-box">
     <h2>Acesso Exclusivo</h2>
-    <p>Este site está em fase privada de lançamento.</p>
     <input type="password" id="senha" placeholder="Digite a senha">
     <button onclick="verificarSenha()">Entrar</button>
-    <div class="gate-error" id="erro"></div>
+    <div id="erro" class="gate-error"></div>
   </div>
 </div>
 
@@ -90,153 +89,155 @@ nav a{ text-decoration:none; color:#000; font-weight:bold; }
   </div>
 </section>
 
-<!-- MASCULINO -->
 <section class="produtos" id="masculino">
 <h2>Masculino</h2>
 <div class="grid">
 
 <div class="card">
-  <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
-  <h3>Camiseta Boxy Branca </h3>
-  <p>R$ 69,99</p>
-  <select id="tam1"><option>P</option><option>M</option><option>G</option></select>
-  <input type="number" id="qtd1" min="1" max="3" value="1">
-  <input type="text" placeholder="Digite seu CEP" id="cep1">
-  <button onclick="add('Camiseta Boxy Branca ,69.99,'tam1','qtd1','cep1','https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg')">Adicionar ao Carrinho</button>
+<img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
+<h3>Camiseta Boxy Branca</h3>
+<p>R$ 69,99</p>
+<select id="tam1"><option>P</option><option>M</option><option>G</option></select>
+<input id="qtd1" type="number" value="1" min="1" max="3">
+<input id="cep1" placeholder="Digite seu CEP">
+<button onclick="add('Camiseta Boxy Branca',69.99,'tam1','qtd1','cep1','https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg')">Adicionar</button>
 </div>
 
 <div class="card">
-  <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
-  <h3>Camiseta Boxy Preta</h3>
-  <p>R$ 69,99</p>
-  <select id="tam2"><option>P</option><option>M</option><option>G</option></select>
-  <input type="number" id="qtd2" min="1" max="3" value="1">
-  <input type="text" placeholder="Digite seu CEP" id="cep2">
-  <button onclick="add('Camiseta Boxy Preta ',69.99,'tam2','qtd2','cep2','https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg')">Adicionar ao Carrinho</button>
+<img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
+<h3>Camiseta Boxy Preta</h3>
+<p>R$ 69,99</p>
+<select id="tam2"><option>P</option><option>M</option><option>G</option></select>
+<input id="qtd2" type="number" value="1" min="1" max="3">
+<input id="cep2" placeholder="Digite seu CEP">
+<button onclick="add('Camiseta Boxy Preta',69.99,'tam2','qtd2','cep2','https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg')">Adicionar</button>
 </div>
 
 <div class="card">
-  <img src="https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg">
-  <h3>Calça Baggy Preta Unissex</h3>
-  <p>R$ 129,99</p>
-  <select id="tam3"><option>P</option><option>M</option><option>G</option></select>
-  <input type="number" id="qtd3" min="1" max="3" value="1">
-  <input type="text" placeholder="Digite seu CEP" id="cep3">
-  <button onclick="add('Calça Baggy Preta Unissex',129.99,'tam3','qtd3','cep3','https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg')">Adicionar ao Carrinho</button>
+<img src="https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg">
+<h3>Calça Baggy Preta</h3>
+<p>R$ 129,99</p>
+<select id="tam3"><option>P</option><option>M</option><option>G</option></select>
+<input id="qtd3" type="number" value="1" min="1" max="3">
+<input id="cep3" placeholder="Digite seu CEP">
+<button onclick="add('Calça Baggy Preta',129.99,'tam3','qtd3','cep3','https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg')">Adicionar</button>
 </div>
 
 </div>
 </section>
 
-<!-- FEMININO -->
 <section class="produtos" id="feminino">
 <h2>Feminino</h2>
 <div class="grid">
 
 <div class="card">
-  <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
-  <h3>Baby Tee Feminina Preta</h3>
-  <p>R$ 59,99</p>
-  <select id="tam4"><option>P</option><option>M</option><option>G</option></select>
-  <input type="number" id="qtd4" min="1" max="3" value="1">
-  <input type="text" placeholder="Digite seu CEP" id="cep4">
-  <button onclick="add('Baby Tee Feminina Preta',59.99,'tam4','qtd4','cep4','https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg')">Adicionar ao Carrinho</button>
+<img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
+<h3>Baby Tee Preta</h3>
+<p>R$ 59,99</p>
+<select id="tam4"><option>P</option><option>M</option><option>G</option></select>
+<input id="qtd4" type="number" value="1" min="1" max="3">
+<input id="cep4" placeholder="Digite seu CEP">
+<button onclick="add('Baby Tee Preta',59.99,'tam4','qtd4','cep4','https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg')">Adicionar</button>
 </div>
 
 <div class="card">
-  <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
-  <h3>Baby Tee Feminina Branca</h3>
-  <p>R$ 59,99</p>
-  <select id="tam5"><option>P</option><option>M</option><option>G</option></select>
-  <input type="number" id="qtd5" min="1" max="3" value="1">
-  <input type="text" placeholder="Digite seu CEP" id="cep5">
-  <button onclick="add('Baby Tee Feminina Branca',59.99,'tam5','qtd5','cep5','https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg')">Adicionar ao Carrinho</button>
+<img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
+<h3>Baby Tee Branca</h3>
+<p>R$ 59,99</p>
+<select id="tam5"><option>P</option><option>M</option><option>G</option></select>
+<input id="qtd5" type="number" value="1" min="1" max="3">
+<input id="cep5" placeholder="Digite seu CEP">
+<button onclick="add('Baby Tee Branca',59.99,'tam5','qtd5','cep5','https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg')">Adicionar</button>
 </div>
 
 </div>
 </section>
 
-<!-- CARRINHO -->
 <div id="carrinho">
-  <h2>Carrinho</h2>
-  <input type="text" id="cpf" placeholder="Digite seu CPF">
-  <pre id="itens"></pre>
-  <p id="total">Total: R$ 0.00</p>
-  <button onclick="finalizarCompra()">Finalizar Compra</button>
-  <button onclick="cancelarCompra()" style="background:red;color:#fff;margin-top:5px;">Cancelar Compra</button>
+<h2>🛒🔗 Carrinho</h2>
+<input id="cpf" placeholder="Digite seu CPF">
+<pre id="itens"></pre>
+<p id="total">Total: R$ 0.00</p>
+<button class="finalizar-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+<button onclick="cancelarCompra()" style="background:red;color:#fff;width:100%;margin-top:5px;padding:10px;border:none">Cancelar</button>
 </div>
 
 <div id="notificacao"></div>
-
 <a class="whatsapp-btn" href="https://wa.me/5511978695484" target="_blank">💬</a>
 
 <script>
-let total=0, texto="", carrinhoProdutos=[];
+let total=0,texto="",carrinhoProdutos=[];
 
-// SENHA
 function verificarSenha(){
-  const senha=document.getElementById("senha").value;
-  if(senha==="Efatah20"){ document.getElementById("gate").style.display="none"; }
-  else{ document.getElementById("erro").innerText="Senha incorreta."; }
+  if(document.getElementById("senha").value==="Efatah20"){
+    document.getElementById("gate").style.display="none";
+  }else{
+    document.getElementById("erro").innerText="Senha incorreta";
+  }
 }
 
-// FRETE
+/* FRETE POR DISTÂNCIA - ORIGEM 02138-030 */
 function calcularFreteCEP(cep){
   cep=cep.replace(/\D/g,'');
-  if(cep.length!==8){ return {valor:0,mensagem:"CEP inválido"}; }
-  return {valor:19.90,mensagem:"PAC: R$ 19,90 (15 dias úteis)"}; 
+  if(cep.length!==8) return {valor:0,mensagem:"CEP inválido"};
+
+  const c=parseInt(cep);
+  let v=0;
+
+  if(c>=1000000 && c<=5999999) v=19.90;
+  else if(c>=6000000 && c<=9999999) v=24.90;
+  else if(c>=20000000 && c<=39999999) v=29.90;
+  else if(c>=70000000 && c<=89999999) v=34.90;
+  else v=39.90;
+
+  return {valor:v,mensagem:"Frete: R$ "+v.toFixed(2)};
 }
 
-// ADICIONAR AO CARRINHO
-function add(nome, preco, tam, qtd, cep, imgSrc){
-  let quantidade=parseInt(document.getElementById(qtd).value);
-  if(quantidade>3){ alert("Limite 3 unidades por produto."); return; }
+function add(nome,preco,tam,qtd,cep,img){
+  const q=parseInt(document.getElementById(qtd).value);
+  const f=calcularFreteCEP(document.getElementById(cep).value);
+  if(!f.valor){alert(f.mensagem);return}
 
-  const cepValue=document.getElementById(cep).value;
-  const freteObj=calcularFreteCEP(cepValue);
-  if(freteObj.valor===0){ alert(freteObj.mensagem); return; }
-
-  let sub=(preco*quantidade)+freteObj.valor;
+  const sub=(preco*q)+f.valor;
   total+=sub;
-  texto+=`${nome} (${document.getElementById(tam).value}) x${quantidade} - R$ ${(preco*quantidade).toFixed(2)} + Frete: R$ ${freteObj.valor.toFixed(2)} = R$ ${sub.toFixed(2)}\n`;
+
+  texto+=`${nome} (${document.getElementById(tam).value}) x${q}
+Produto: R$ ${(preco*q).toFixed(2)}
+Frete: R$ ${f.valor.toFixed(2)}
+Subtotal: R$ ${sub.toFixed(2)}\n\n`;
 
   document.getElementById("itens").innerText=texto;
   document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
 
-  carrinhoProdutos.push({nome:nome,tamanho:document.getElementById(tam).value,quantidade:quantidade,subtotal:sub.toFixed(2),frete:freteObj.valor});
+  carrinhoProdutos.push({nome,tamanho:document.getElementById(tam).value,quantidade:q,subtotal:sub,frete:f.valor});
 
-  const noti=document.getElementById("notificacao");
-  noti.innerHTML=`<img src="${imgSrc}" alt="Produto"><div><strong>${nome}</strong><br>Quantidade: ${quantidade}<br>Frete: R$ ${freteObj.valor.toFixed(2)}<br>Subtotal: R$ ${sub.toFixed(2)}</div>`;
-  noti.style.display="flex";
-  setTimeout(()=>{noti.style.display="none"},3500);
+  const n=document.getElementById("notificacao");
+  n.innerHTML=`<img src="${img}"><div>${nome}<br>Subtotal: R$ ${sub.toFixed(2)}</div>`;
+  n.style.display="flex";
+  setTimeout(()=>n.style.display="none",3000);
 }
 
-// CANCELAR COMPRA
 function cancelarCompra(){
-  texto=""; carrinhoProdutos=[]; total=0;
+  texto="";total=0;carrinhoProdutos=[];
   document.getElementById("itens").innerText="";
   document.getElementById("total").innerText="Total: R$ 0.00";
-  alert("Carrinho cancelado com sucesso!");
 }
 
-// FINALIZAR COMPRA WHATSAPP
 function finalizarCompra(){
-  if(carrinhoProdutos.length===0){ alert("Adicione pelo menos um produto no carrinho."); return; }
+  if(!carrinhoProdutos.length){alert("Carrinho vazio");return}
+  const cpf=document.getElementById("cpf").value;
+  if(!cpf){alert("Informe o CPF");return}
 
-  const cpfValue=document.getElementById("cpf").value.trim();
-  if(cpfValue===""){ alert("Por favor, informe seu CPF."); return; }
-
-  let mensagem="Olá! Vim pelo site LOYL.\n\n";
-  carrinhoProdutos.forEach(item=>{
-    mensagem+=`Produto: ${item.nome}\nTamanho: ${item.tamanho}\nQuantidade: ${item.quantidade}\nSubtotal: R$ ${item.subtotal}\nFrete: R$ ${item.frete.toFixed(2)}\n\n`;
+  let msg="Olá! Pedido LOYL:\n\n";
+  carrinhoProdutos.forEach(p=>{
+    msg+=`${p.nome} (${p.tamanho}) x${p.quantidade}
+Subtotal: R$ ${p.subtotal.toFixed(2)}
+Frete: R$ ${p.frete.toFixed(2)}\n\n`;
   });
-  mensagem+=`CPF: ${cpfValue}\n`;
-  mensagem+=`Total da compra: R$ ${total.toFixed(2)}\n\nGostaria de finalizar a compra.`;
-
-  const whatsapp="https://wa.me/5511978695484?text="+encodeURIComponent(mensagem);
-  window.open(whatsapp,"_blank");
+  msg+=`CPF: ${cpf}\nTotal: R$ ${total.toFixed(2)}`;
+  window.open("https://wa.me/5511978695484?text="+encodeURIComponent(msg));
 }
 </script>
 
 </body>
-              </html>
+</html>
