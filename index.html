@@ -45,7 +45,6 @@ nav a{text-decoration:none;color:#000;font-weight:bold}
   background:#25d366;color:#fff;font-weight:bold;
   width:100%;padding:12px;border:none;cursor:pointer;border-radius:4px
 }
-.finalizar-btn:hover{background:#1ebe5d}
 
 /* NOTIFICAÇÃO */
 #notificacao{position:fixed;bottom:100px;right:20px;background:#fff;border:1px solid #ccc;padding:10px;display:none;gap:10px;border-radius:6px}
@@ -176,26 +175,23 @@ function verificarSenha(){
   }
 }
 
-/* FRETE POR DISTÂNCIA - ORIGEM 02138-030 */
 function calcularFreteCEP(cep){
   cep=cep.replace(/\D/g,'');
   if(cep.length!==8) return {valor:0,mensagem:"CEP inválido"};
-
   const c=parseInt(cep);
   let v=0;
-
   if(c>=1000000 && c<=5999999) v=19.90;
   else if(c>=6000000 && c<=9999999) v=24.90;
   else if(c>=20000000 && c<=39999999) v=29.90;
   else if(c>=70000000 && c<=89999999) v=34.90;
   else v=39.90;
-
   return {valor:v,mensagem:"Frete: R$ "+v.toFixed(2)};
 }
 
 function add(nome,preco,tam,qtd,cep,img){
   const q=parseInt(document.getElementById(qtd).value);
-  const f=calcularFreteCEP(document.getElementById(cep).value);
+  const cepValor=document.getElementById(cep).value;
+  const f=calcularFreteCEP(cepValor);
   if(!f.valor){alert(f.mensagem);return}
 
   const sub=(preco*q)+f.valor;
@@ -204,12 +200,13 @@ function add(nome,preco,tam,qtd,cep,img){
   texto+=`${nome} (${document.getElementById(tam).value}) x${q}
 Produto: R$ ${(preco*q).toFixed(2)}
 Frete: R$ ${f.valor.toFixed(2)}
+CEP: ${cepValor}
 Subtotal: R$ ${sub.toFixed(2)}\n\n`;
 
   document.getElementById("itens").innerText=texto;
   document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
 
-  carrinhoProdutos.push({nome,tamanho:document.getElementById(tam).value,quantidade:q,subtotal:sub,frete:f.valor});
+  carrinhoProdutos.push({nome,tamanho:document.getElementById(tam).value,quantidade:q,subtotal:sub,frete:f.valor,cep:cepValor});
 
   const n=document.getElementById("notificacao");
   n.innerHTML=`<img src="${img}"><div>${nome}<br>Subtotal: R$ ${sub.toFixed(2)}</div>`;
@@ -231,8 +228,9 @@ function finalizarCompra(){
   let msg="Olá! Pedido LOYL:\n\n";
   carrinhoProdutos.forEach(p=>{
     msg+=`${p.nome} (${p.tamanho}) x${p.quantidade}
-Subtotal: R$ ${p.subtotal.toFixed(2)}
-Frete: R$ ${p.frete.toFixed(2)}\n\n`;
+CEP: ${p.cep}
+Frete: R$ ${p.frete.toFixed(2)}
+Subtotal: R$ ${p.subtotal.toFixed(2)}\n\n`;
   });
   msg+=`CPF: ${cpf}\nTotal: R$ ${total.toFixed(2)}`;
   window.open("https://wa.me/5511978695484?text="+encodeURIComponent(msg));
