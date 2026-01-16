@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -6,305 +6,289 @@
 <title>LOYL Store</title>
 
 <style>
-html { scroll-behavior: smooth; }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-body { background: #fff; color: #000; }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#000;
+}
+
+/* ===== TELA DE ACESSO ===== */
+#gate{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.gate-box{
+  text-align:center;
+  border:1px solid #ccc;
+  padding:40px;
+  max-width:350px;
+  width:90%;
+}
+
+.gate-box h2{
+  margin-bottom:10px;
+}
+
+.gate-box p{
+  margin-bottom:20px;
+  font-size:14px;
+  color:#555;
+}
+
+.gate-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+.gate-box button{
+  width:100%;
+  padding:10px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+.gate-error{
+  color:red;
+  margin-top:10px;
+  font-size:14px;
+}
 
 /* HEADER */
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  z-index: 1000;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 30px;
+  border-bottom:1px solid #ccc;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  z-index:1000;
 }
 
-header .logo img { height: 60px; }
+.logo img{height:55px;}
 
-nav {
-  position: absolute;
-  right: 20px;
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-}
-
-nav ul li a:hover { color: #555; }
-
-.menu-btn {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+nav a{
+  text-decoration:none;
+  color:#000;
+  font-weight:bold;
 }
 
 /* HERO */
-.hero {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 80px;
-}
-
-.hero h2 { font-size: 34px; margin-bottom: 10px; }
-.hero p { color: #555; margin-bottom: 20px; }
-.hero button {
-  padding: 10px 25px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* PRODUTOS */
-.produtos { padding: 40px 20px; }
-.produtos h3 { text-align: center; margin-bottom: 30px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  text-align: center;
-  background: #fff;
-}
-
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.card h4 { font-size: 14px; margin-bottom: 5px; }
-.card p { color: #555; margin: 8px 0; }
-.card button {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-/* CONTATO */
-#contato {
-  padding: 40px 20px;
-  text-align: center;
-  border-top: 1px solid #ccc;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #ccc;
-  font-size: 13px;
-  color: #555;
-}
-
-/* WHATSAPP */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  background: #25d366;
-  color: #fff;
-  font-size: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  z-index: 999;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  nav ul {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    width: 200px;
-    padding: 20px;
-    display: none;
-  }
-  nav ul.active { display: flex; }
-  .menu-btn { display: block; }
-}
-
-/* SITE BLOQUEADO */
-#blocked {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  z-index:2000;
+.hero{
+  margin-top:100px;
+  height:50vh;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-  font-family: Arial, sans-serif;
 }
 
-#blocked button {
-  padding: 15px 30px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 20px;
+/* PRODUTOS */
+.produtos{padding:40px 20px;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  border:1px solid #ccc;
+  padding:15px;
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+/* FRETE */
+.frete{margin-top:15px;}
+
+.frete input{
+  width:100%;
+  padding:8px;
+  margin-bottom:8px;
+}
+
+.frete button{
+  width:100%;
+  padding:8px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+.frete p{
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* WHATS */
+.whatsapp-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  background:#25d366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
 }
 </style>
 </head>
+
 <body>
 
-<div id="blocked">
-  <h1>Site indisponível</h1>
-  <p>Somente o administrador pode liberar o site.</p>
-  <p id="countdown"></p>
-  <button id="unlockBtn">Liberar Site</button>
+<!-- TELA FECHADA -->
+<div id="gate">
+  <div class="gate-box">
+    <h2>Acesso Exclusivo</h2>
+    <p>Este site está em fase privada de lançamento.</p>
+    <input type="password" id="senha" placeholder="Digite a senha">
+    <button onclick="verificarSenha()">Entrar</button>
+    <div class="gate-error" id="erro"></div>
+  </div>
 </div>
 
 <header>
   <div class="logo">
-    <img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg" alt="Logo LOYL">
+    <img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg">
   </div>
-
   <nav>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <ul id="menu">
-      <li><a href="#inicio">Início</a></li>
+    <ul>
       <li><a href="#masculino">Masculino</a></li>
       <li><a href="#feminino">Feminino</a></li>
-      <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="hero" id="inicio">
+<section class="hero">
   <div>
-    <h2>LOYL</h2>
+    <h1>LOYL</h1>
     <p>DON'T BETRAY YOURSELF</p>
-    <button onclick="location.href='#masculino'">Ver Coleção</button>
   </div>
 </section>
 
-<!-- MASCULINO -->
 <section class="produtos" id="masculino">
-  <h3>Masculino</h3>
-  <div class="grid">
-    <div class="card">
-      <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
-      <h4>Camiseta Masculino Branco e Preto LOYL Frente e Verso</h4>
-      <p>R$ 89,90</p>
-      <button onclick="buyProduct('Camiseta Masculino Branco e Preto LOYL Frente e Verso')">Comprar</button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
-      <h4>Camiseta Masculino Outra</h4>
-      <p>R$ 79,90</p>
-      <button onclick="buyProduct('Camiseta Masculino Outra')">Comprar</button>
-    </div>
+<h2>Masculino</h2>
+<div class="grid">
+
+<div class="card">
+  <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
+  <h3>Camiseta LOYL Preta</h3>
+  <p>R$ 89,90</p>
+  <div class="frete">
+    <input type="text" placeholder="Digite seu CEP" id="cep1">
+    <button onclick="calcularFrete('cep1','frete1')">Calcular frete</button>
+    <p id="frete1"></p>
   </div>
+</div>
+
+<div class="card">
+  <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
+  <h3>Camiseta LOYL Branca</h3>
+  <p>R$ 89,90</p>
+  <div class="frete">
+    <input type="text" placeholder="Digite seu CEP" id="cep2">
+    <button onclick="calcularFrete('cep2','frete2')">Calcular frete</button>
+    <p id="frete2"></p>
+  </div>
+</div>
+
+</div>
 </section>
 
-<!-- FEMININO -->
 <section class="produtos" id="feminino">
-  <h3>Feminino</h3>
-  <div class="grid">
-    <div class="card">
-      <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
-      <h4>Camiseta Feminina Preta LOYL</h4>
-      <p>R$ 199,90</p>
-      <button onclick="buyProduct('Camiseta Feminina Preta LOYL')">Comprar</button>
-    </div>
-    <div class="card">
-      <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
-      <h4>Camiseta Feminina Branca LOYL</h4>
-      <p>R$ 149,90</p>
-      <button onclick="buyProduct('Camiseta Feminina Branca LOYL')">Comprar</button>
-    </div>
+<h2>Feminino</h2>
+<div class="grid">
+
+<div class="card">
+  <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
+  <h3>Camiseta Feminina Preta</h3>
+  <p>R$ 199,90</p>
+  <div class="frete">
+    <input type="text" placeholder="Digite seu CEP" id="cep3">
+    <button onclick="calcularFrete('cep3','frete3')">Calcular frete</button>
+    <p id="frete3"></p>
   </div>
+</div>
+
+<div class="card">
+  <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
+  <h3>Camiseta Feminina Branca</h3>
+  <p>R$ 149,90</p>
+  <div class="frete">
+    <input type="text" placeholder="Digite seu CEP" id="cep4">
+    <button onclick="calcularFrete('cep4','frete4')">Calcular frete</button>
+    <p id="frete4"></p>
+  </div>
+</div>
+
+</div>
 </section>
 
-<section id="contato">
-  <h3>Contato</h3>
-  <p>📱 WhatsApp: (11) 99326-6606</p>
-  <p>📍 São Paulo - SP</p>
-</section>
-
-<footer>
-  © 2026 LOYL — Todos os direitos reservados
-</footer>
-
-<a href="https://wa.me/5511993266606?text=Olá,%20vim%20pela%20loja%20LOYL%20e%20quero%20comprar%20uma%20camiseta" class="whatsapp-btn" target="_blank">💬</a>
+<a class="whatsapp-btn" href="https://wa.me/5511993266606" target="_blank">💬</a>
 
 <script>
-// MENU RESPONSIVO
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
-}
-
-// BLOQUEIO ATÉ 25 MARÇO
-const blockedDiv = document.getElementById('blocked');
-const unlockBtn = document.getElementById('unlockBtn');
-const releaseDate = new Date('2026-03-25T00:00:00').getTime();
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const diff = releaseDate - now;
-  if(diff <= 0) {
-    blockedDiv.style.display = 'none';
-    clearInterval(countdownInterval);
-  } else {
-    const days = Math.floor(diff/(1000*60*60*24));
-    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    const mins = Math.floor((diff%(1000*60*60))/(1000*60));
-    const secs = Math.floor((diff%(1000*60))/1000);
-    document.getElementById('countdown').innerText = `Liberado em ${days}d ${hours}h ${mins}m ${secs}s`;
+function verificarSenha(){
+  const senha = document.getElementById("senha").value;
+  if(senha === "Efatah20"){
+    document.getElementById("gate").style.display = "none";
+  }else{
+    document.getElementById("erro").innerText = "Senha incorreta.";
   }
 }
 
-const countdownInterval = setInterval(updateCountdown,1000);
-updateCountdown();
-
-// BOTÃO PARA LIBERAR SÓ VOCÊ
-unlockBtn.addEventListener('click', () => {
-  blockedDiv.style.display = 'none';
-});
-
-// FUNÇÃO DE COMPRA PROFISSIONAL
-function buyProduct(productName) {
-  const msg = `Olá, vim pelo site LOYL e gostaria de comprar a camiseta "${productName}". Poderia me passar os detalhes de pagamento, por favor?`;
-  const url = `https://wa.me/5511993266606?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+function calcularFrete(inputId, outputId){
+  const cep = document.getElementById(inputId).value;
+  if(cep.length < 8){
+    document.getElementById(outputId).innerText = "CEP inválido";
+    return;
+  }
+  document.getElementById(outputId).innerHTML =
+    "PAC: R$ 19,90 (15 dias úteis)<br>SEDEX: R$ 34,90 (2 a 3 dias úteis)";
 }
 </script>
 
 </body>
-</html>
+    </html>
