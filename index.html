@@ -4,64 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOYL</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#fff;color:#000;}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+body { background:#fff; color:#000; }
 
-/* SENHA DE ACESSO */
+/* TELA DE ACESSO */
 #gate{
-  position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;
-  background-image:url('https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg');
-  background-size:contain;background-repeat:no-repeat;background-position:center;
+  position:fixed; inset:0; background:#fff url('https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center; z-index:9999;
 }
-.gate-box{text-align:center;border:1px solid #ccc;padding:40px;max-width:350px;width:90%;background:#fff;}
-.gate-box h2{margin-bottom:10px;}
-.gate-box p{margin-bottom:20px;font-size:14px;color:#555;}
-.gate-box input{width:100%;padding:10px;margin-bottom:10px;}
-.gate-box button{width:100%;padding:10px;background:#000;color:#fff;border:none;cursor:pointer;}
-.gate-error{color:red;margin-top:10px;font-size:14px;}
+.gate-box{ text-align:center; background:rgba(255,255,255,0.9); padding:40px; max-width:350px; width:90%; border-radius:8px; }
+.gate-box h2{ margin-bottom:10px; }
+.gate-box p{ margin-bottom:20px; font-size:14px; color:#555; }
+.gate-box input{ width:100%; padding:10px; margin-bottom:10px; }
+.gate-box button{ width:100%; padding:10px; background:#000; color:#fff; border:none; cursor:pointer; }
+.gate-error{ color:red; margin-top:10px; font-size:14px; }
 
 /* HEADER */
-header{display:flex;align-items:center;justify-content:space-between;padding:15px 30px;border-bottom:1px solid #ccc;position:fixed;top:0;width:100%;background:#fff;z-index:1000;}
-.logo img{height:55px;}
-nav ul{list-style:none;display:flex;gap:25px;}
-nav a{text-decoration:none;color:#000;font-weight:bold;}
+header{ display:flex; align-items:center; justify-content:space-between; padding:15px 30px; border-bottom:1px solid #ccc; position:fixed; top:0; width:100%; background:#fff; z-index:1000; }
+.logo img{ height:55px; }
+nav ul{ list-style:none; display:flex; gap:25px; }
+nav a{ text-decoration:none; color:#000; font-weight:bold; }
 
 /* HERO */
-.hero{margin-top:100px;height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;}
+.hero{ margin-top:100px; height:50vh; display:flex; align-items:center; justify-content:center; text-align:center; }
 
 /* PRODUTOS */
-.produtos{padding:40px 20px;}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.card{border:1px solid #ccc;padding:15px;text-align:center;}
-.card img{width:100%;height:220px;object-fit:cover;}
-.card select, .card input{margin:5px 0;width:100%;padding:5px;}
-.card button{background:#000;color:#fff;border:none;padding:10px;margin-top:10px;cursor:pointer;}
+.produtos{ padding:40px 20px; }
+.grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.card{ border:1px solid #ccc; padding:15px; text-align:center; }
+.card img{ width:100%; height:220px; object-fit:cover; }
+.card button{ background:#000; color:#fff; border:none; padding:10px; margin-top:10px; cursor:pointer; width:100%; }
 
 /* FRETE */
-.frete{margin-top:15px;}
-.frete input{width:100%;padding:8px;margin-bottom:8px;}
-.frete button{width:100%;padding:8px;background:#000;color:#fff;border:none;cursor:pointer;}
-.frete p{margin-top:8px;font-size:14px;}
+.frete{ margin-top:10px; }
+.frete input{ width:100%; padding:8px; margin-bottom:8px; }
+.frete button{ width:100%; padding:8px; background:#000; color:#fff; border:none; cursor:pointer; }
+.frete p{ margin-top:8px; font-size:14px; }
 
 /* CARRINHO */
-#carrinho{padding:20px;margin:20px;border:1px solid #ccc;}
-#carrinho h3{text-align:center;margin-bottom:10px;}
-#carrinho ul{list-style:none;}
-#carrinho li{margin-bottom:8px;}
+#carrinho{ margin-top:20px; padding:20px; border:1px solid #ccc; }
+#carrinho h2{ margin-bottom:10px; }
+#itens{ white-space: pre-wrap; margin-bottom:10px; }
+#notificacao{ position:fixed; bottom:100px; right:20px; background:#fff; border:1px solid #ccc; display:none; padding:10px; align-items:center; gap:10px; z-index:1000; border-radius:6px; }
+#notificacao img{ width:50px; height:50px; object-fit:cover; }
 
 /* RESPONSIVO */
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:500px){.grid{grid-template-columns:1fr;}}
+@media(max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:500px){ .grid{ grid-template-columns:1fr; } }
 
 /* WHATS */
-.whatsapp-btn{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;}
+.whatsapp-btn{ position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:#25d366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; text-decoration:none; }
 </style>
 </head>
+
 <body>
 
-<!-- SENHA -->
+<!-- TELA FECHADA -->
 <div id="gate">
   <div class="gate-box">
     <h2>Acesso Exclusivo</h2>
@@ -73,12 +72,13 @@ nav a{text-decoration:none;color:#000;font-weight:bold;}
 </div>
 
 <header>
-  <div class="logo"><img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg"></div>
+  <div class="logo">
+    <img src="https://i.postimg.cc/RZJbTXMh/Screenshot-20260109-235535-Gallery.jpg">
+  </div>
   <nav>
     <ul>
       <li><a href="#masculino">Masculino</a></li>
       <li><a href="#feminino">Feminino</a></li>
-      <li><a href="#carrinho">Carrinho</a></li>
     </ul>
   </nav>
 </header>
@@ -90,165 +90,153 @@ nav a{text-decoration:none;color:#000;font-weight:bold;}
   </div>
 </section>
 
-<!-- PRODUTOS MASCULINO -->
+<!-- MASCULINO -->
 <section class="produtos" id="masculino">
 <h2>Masculino</h2>
 <div class="grid">
-  <div class="card">
-    <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
-    <h3>Camiseta Boxy Preta</h3>
-    <p>R$ 69,99</p>
-    <select id="tamanho1">
-      <option value="M">M</option>
-      <option value="P">P</option>
-      <option value="G">G</option>
-    </select>
-    <input type="number" id="qtd1" value="1" min="1" max="3">
-    <div class="frete">
-      <input type="text" placeholder="Digite seu CEP" id="cep1">
-      <button onclick="calcularFrete('cep1','frete1')">Calcular frete</button>
-      <p id="frete1"></p>
-    </div>
-    <button onclick="adicionarCarrinho('Camiseta Boxy Preta',69.99,'tamanho1','qtd1','frete1')">Adicionar ao Carrinho</button>
-  </div>
 
-  <div class="card">
-    <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
-    <h3>Camiseta Boxy Branca</h3>
-    <p>R$ 69,99</p>
-    <select id="tamanho2">
-      <option value="M">M</option>
-      <option value="P">P</option>
-      <option value="G">G</option>
-    </select>
-    <input type="number" id="qtd2" value="1" min="1" max="3">
-    <div class="frete">
-      <input type="text" placeholder="Digite seu CEP" id="cep2">
-      <button onclick="calcularFrete('cep2','frete2')">Calcular frete</button>
-      <p id="frete2"></p>
-    </div>
-    <button onclick="adicionarCarrinho('Camiseta Boxy Branca',69.99,'tamanho2','qtd2','frete2')">Adicionar ao Carrinho</button>
-  </div>
+<div class="card">
+  <img src="https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg">
+  <h3>Camiseta Boxy Branca </h3>
+  <p>R$ 69,99</p>
+  <select id="tam1"><option>P</option><option>M</option><option>G</option></select>
+  <input type="number" id="qtd1" min="1" max="3" value="1">
+  <input type="text" placeholder="Digite seu CEP" id="cep1">
+  <button onclick="add('Camiseta Boxy Branca ,69.99,'tam1','qtd1','cep1','https://i.ibb.co/BHLjp9wS/Screenshot-20260110-020302-Whats-App.jpg')">Adicionar ao Carrinho</button>
+</div>
 
-  <div class="card">
-    <img src="https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg" alt="Calça Baggy Preta">
-    <h3>Calça Baggy Preta Unissex</h3>
-    <p>R$ 129,99</p>
-    <select id="tamanho3">
-      <option value="M">M</option>
-      <option value="P">P</option>
-      <option value="G">G</option>
-    </select>
-    <input type="number" id="qtd3" value="1" min="1" max="3">
-    <div class="frete">
-      <input type="text" placeholder="Digite seu CEP" id="cep3">
-      <button onclick="calcularFrete('cep3','frete3')">Calcular frete</button>
-      <p id="frete3"></p>
-    </div>
-    <button onclick="adicionarCarrinho('Calça Baggy Preta Unissex',129.99,'tamanho3','qtd3','frete3')">Adicionar ao Carrinho</button>
-  </div>
+<div class="card">
+  <img src="https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg">
+  <h3>Camiseta Boxy Preta</h3>
+  <p>R$ 69,99</p>
+  <select id="tam2"><option>P</option><option>M</option><option>G</option></select>
+  <input type="number" id="qtd2" min="1" max="3" value="1">
+  <input type="text" placeholder="Digite seu CEP" id="cep2">
+  <button onclick="add('Camiseta Boxy Preta ',69.99,'tam2','qtd2','cep2','https://i.ibb.co/jP4ZWnTS/Screenshot-20260110-025755-Whats-App.jpg')">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card">
+  <img src="https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg">
+  <h3>Calça Baggy Preta Unissex</h3>
+  <p>R$ 129,99</p>
+  <select id="tam3"><option>P</option><option>M</option><option>G</option></select>
+  <input type="number" id="qtd3" min="1" max="3" value="1">
+  <input type="text" placeholder="Digite seu CEP" id="cep3">
+  <button onclick="add('Calça Baggy Preta Unissex',129.99,'tam3','qtd3','cep3','https://i.ibb.co/TMtrH8Yk/IMG-20260115-WA0649.jpg')">Adicionar ao Carrinho</button>
+</div>
+
 </div>
 </section>
 
-<!-- PRODUTOS FEMININO -->
+<!-- FEMININO -->
 <section class="produtos" id="feminino">
 <h2>Feminino</h2>
 <div class="grid">
-  <div class="card">
-    <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
-    <h3>Baby Tee Feminina Preta</h3>
-    <p>R$ 59,99</p>
-    <select id="tamanho4">
-      <option value="M">M</option>
-      <option value="P">P</option>
-      <option value="G">G</option>
-    </select>
-    <input type="number" id="qtd4" value="1" min="1" max="3">
-    <div class="frete">
-      <input type="text" placeholder="Digite seu CEP" id="cep4">
-      <button onclick="calcularFrete('cep4','frete4')">Calcular frete</button>
-      <p id="frete4"></p>
-    </div>
-    <button onclick="adicionarCarrinho('Baby Tee Feminina Preta',59.99,'tamanho4','qtd4','frete4')">Adicionar ao Carrinho</button>
-  </div>
 
-  <div class="card">
-    <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
-    <h3>Baby Tee Feminina Branca</h3>
-    <p>R$ 59,99</p>
-    <select id="tamanho5">
-      <option value="M">M</option>
-      <option value="P">P</option>
-      <option value="G">G</option>
-    </select>
-    <input type="number" id="qtd5" value="1" min="1" max="3">
-    <div class="frete">
-      <input type="text" placeholder="Digite seu CEP" id="cep5">
-      <button onclick="calcularFrete('cep5','frete5')">Calcular frete</button>
-      <p id="frete5"></p>
-    </div>
-    <button onclick="adicionarCarrinho('Baby Tee Feminina Branca',59.99,'tamanho5','qtd5','frete5')">Adicionar ao Carrinho</button>
-  </div>
+<div class="card">
+  <img src="https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg">
+  <h3>Baby Tee Feminina Preta</h3>
+  <p>R$ 59,99</p>
+  <select id="tam4"><option>P</option><option>M</option><option>G</option></select>
+  <input type="number" id="qtd4" min="1" max="3" value="1">
+  <input type="text" placeholder="Digite seu CEP" id="cep4">
+  <button onclick="add('Baby Tee Feminina Preta',59.99,'tam4','qtd4','cep4','https://i.postimg.cc/pLPpf1Qn/Screenshot-20260109-234611-Gallery.jpg')">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card">
+  <img src="https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg">
+  <h3>Baby Tee Feminina Branca</h3>
+  <p>R$ 59,99</p>
+  <select id="tam5"><option>P</option><option>M</option><option>G</option></select>
+  <input type="number" id="qtd5" min="1" max="3" value="1">
+  <input type="text" placeholder="Digite seu CEP" id="cep5">
+  <button onclick="add('Baby Tee Feminina Branca',59.99,'tam5','qtd5','cep5','https://i.postimg.cc/RZGyhNVq/Screenshot-20260109-181827-Gallery.jpg')">Adicionar ao Carrinho</button>
+</div>
+
 </div>
 </section>
 
 <!-- CARRINHO -->
-<section id="carrinho">
-<h3>Carrinho</h3>
-<ul id="lista-carrinho"></ul>
-<p>Total: R$ <span id="total">0.00</span></p>
-<p>Localização: São Paulo - SP</p>
-<p><a href="#">Termos e Condições</a></p>
-<a class="whatsapp-btn" id="finalizar" target="_blank">💬</a>
-</section>
+<div id="carrinho">
+  <h2>Carrinho</h2>
+  <input type="text" id="cpf" placeholder="Digite seu CPF">
+  <pre id="itens"></pre>
+  <p id="total">Total: R$ 0.00</p>
+  <button onclick="finalizarCompra()">Finalizar Compra</button>
+  <button onclick="cancelarCompra()" style="background:red;color:#fff;margin-top:5px;">Cancelar Compra</button>
+</div>
+
+<div id="notificacao"></div>
+
+<a class="whatsapp-btn" href="https://wa.me/5511978695484" target="_blank">💬</a>
 
 <script>
+let total=0, texto="", carrinhoProdutos=[];
+
 // SENHA
 function verificarSenha(){
-  const senha = document.getElementById("senha").value;
-  if(senha === "Efatah20"){
-    document.getElementById("gate").style.display = "none";
-  }else{
-    document.getElementById("erro").innerText = "Senha incorreta.";
-  }
+  const senha=document.getElementById("senha").value;
+  if(senha==="Efatah20"){ document.getElementById("gate").style.display="none"; }
+  else{ document.getElementById("erro").innerText="Senha incorreta."; }
 }
 
 // FRETE
-function calcularFrete(inputId, outputId){
-  const cep = document.getElementById(inputId).value;
-  if(cep.length < 8){
-    document.getElementById(outputId).innerText = "CEP inválido";
-    return;
-  }
-  document.getElementById(outputId).innerText = "PAC: R$ 19,90 (15 dias úteis)";
+function calcularFreteCEP(cep){
+  cep=cep.replace(/\D/g,'');
+  if(cep.length!==8){ return {valor:0,mensagem:"CEP inválido"}; }
+  return {valor:19.90,mensagem:"PAC: R$ 19,90 (15 dias úteis)"}; 
 }
 
-// CARRINHO
-let carrinho = [];
-function adicionarCarrinho(nome, preco, tamanhoId, qtdId, freteId){
-  const tamanho = document.getElementById(tamanhoId).value;
-  const qtd = parseInt(document.getElementById(qtdId).value);
-  if(qtd>3){alert("Quantidade máxima: 3"); return;}
-  const frete = document.getElementById(freteId).innerText || "PAC: R$ 19,90";
-  const produto = {nome, preco, tamanho, qtd, frete};
-  carrinho.push(produto);
-  atualizarCarrinho();
+// ADICIONAR AO CARRINHO
+function add(nome, preco, tam, qtd, cep, imgSrc){
+  let quantidade=parseInt(document.getElementById(qtd).value);
+  if(quantidade>3){ alert("Limite 3 unidades por produto."); return; }
+
+  const cepValue=document.getElementById(cep).value;
+  const freteObj=calcularFreteCEP(cepValue);
+  if(freteObj.valor===0){ alert(freteObj.mensagem); return; }
+
+  let sub=(preco*quantidade)+freteObj.valor;
+  total+=sub;
+  texto+=`${nome} (${document.getElementById(tam).value}) x${quantidade} - R$ ${(preco*quantidade).toFixed(2)} + Frete: R$ ${freteObj.valor.toFixed(2)} = R$ ${sub.toFixed(2)}\n`;
+
+  document.getElementById("itens").innerText=texto;
+  document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
+
+  carrinhoProdutos.push({nome:nome,tamanho:document.getElementById(tam).value,quantidade:quantidade,subtotal:sub.toFixed(2),frete:freteObj.valor});
+
+  const noti=document.getElementById("notificacao");
+  noti.innerHTML=`<img src="${imgSrc}" alt="Produto"><div><strong>${nome}</strong><br>Quantidade: ${quantidade}<br>Frete: R$ ${freteObj.valor.toFixed(2)}<br>Subtotal: R$ ${sub.toFixed(2)}</div>`;
+  noti.style.display="flex";
+  setTimeout(()=>{noti.style.display="none"},3500);
 }
 
-function atualizarCarrinho(){
-  const lista = document.getElementById("lista-carrinho");
-  lista.innerHTML="";
-  let total=0;
-  let msg="";
-  carrinho.forEach(p=>{
-    lista.innerHTML+=`<li>${p.nome} - Tamanho: ${p.tamanho} - Qtd: ${p.qtd} - ${p.frete} - R$ ${(p.preco*p.qtd+19.9).toFixed(2)}</li>`;
-    total+=p.preco*p.qtd+19.9; // frete fixo
-    msg+=`${p.nome} - Tamanho: ${p.tamanho} - Qtd: ${p.qtd} - ${p.frete}\n`;
+// CANCELAR COMPRA
+function cancelarCompra(){
+  texto=""; carrinhoProdutos=[]; total=0;
+  document.getElementById("itens").innerText="";
+  document.getElementById("total").innerText="Total: R$ 0.00";
+  alert("Carrinho cancelado com sucesso!");
+}
+
+// FINALIZAR COMPRA WHATSAPP
+function finalizarCompra(){
+  if(carrinhoProdutos.length===0){ alert("Adicione pelo menos um produto no carrinho."); return; }
+
+  const cpfValue=document.getElementById("cpf").value.trim();
+  if(cpfValue===""){ alert("Por favor, informe seu CPF."); return; }
+
+  let mensagem="Olá! Vim pelo site LOYL.\n\n";
+  carrinhoProdutos.forEach(item=>{
+    mensagem+=`Produto: ${item.nome}\nTamanho: ${item.tamanho}\nQuantidade: ${item.quantidade}\nSubtotal: R$ ${item.subtotal}\nFrete: R$ ${item.frete.toFixed(2)}\n\n`;
   });
-  document.getElementById("total").innerText = total.toFixed(2);
-  document.getElementById("finalizar").href = `https://wa.me/5511978695484?text=Olá,%20quero%20comprar%20os%20seguintes%20produtos:%0A${encodeURIComponent(msg)}Total: R$ ${total.toFixed(2)}`;
+  mensagem+=`CPF: ${cpfValue}\n`;
+  mensagem+=`Total da compra: R$ ${total.toFixed(2)}\n\nGostaria de finalizar a compra.`;
+
+  const whatsapp="https://wa.me/5511978695484?text="+encodeURIComponent(mensagem);
+  window.open(whatsapp,"_blank");
 }
 </script>
 
 </body>
-        </html>
+              </html>
